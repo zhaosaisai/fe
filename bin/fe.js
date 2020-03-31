@@ -16,10 +16,10 @@ program
   })
 
 program
-  .command('install')
+  .command('install [dependencies...]')
   .description('Install project dependency')
-  .action(() => {
-    install()
+  .action((dependencies) => {
+    install(dependencies)
   })
 
 program.parse(process.argv)

@@ -3,7 +3,7 @@ const { program } = require('commander')
 
 const { selectProject } = require('../src/utils')
 const pkg = require('../package.json')
-const { init } = require('../src')
+const { init, install } = require('../src')
 
 program.version(pkg.version)
 
@@ -13,6 +13,13 @@ program
   .action(async (name) => {
     const project = await selectProject()
     await init(name, project)
+  })
+
+program
+  .command('install')
+  .description('Install project dependency')
+  .action(() => {
+    install()
   })
 
 program.parse(process.argv)

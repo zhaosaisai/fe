@@ -25,7 +25,8 @@
     "chalk": "^3.0.0",
     "commander": "^5.0.0",
     "download-git-repo": "^3.0.2",
-    "inquirer": "^7.1.0"
+    "inquirer": "^7.1.0",
+    "yarn-or-npm": "^3.0.1"
   },
   "engines": {
     "node": ">=8"

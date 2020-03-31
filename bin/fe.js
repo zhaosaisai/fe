@@ -3,7 +3,7 @@ const { program } = require('commander')
 
 const { selectProject } = require('../src/utils')
 const pkg = require('../package.json')
-const { init, install } = require('../src')
+const { init, install, dev } = require('../src')
 
 program.version(pkg.version)
 
@@ -21,5 +21,10 @@ program
   .action((dependencies) => {
     install(dependencies)
   })
+
+program
+  .command('dev')
+  .description('Run development environment')
+  .action(dev)
 
 program.parse(process.argv)

@@ -1,10 +1,10 @@
 const { spawnSync } = require('child_process')
 const { hasNpm } = require('yarn-or-npm')
 
-const command = hasNpm() ? 'npm' : 'yarn'
+const npm = hasNpm()
 
 module.exports = install
 
 function install(pkgs = []) {
-  spawnSync(command, ['install', ...pkgs], { stdio: 'inherit' })
+  spawnSync(npm ? 'npm' : 'yarn', [npm ? 'install' : 'add', ...pkgs], { stdio: 'inherit' })
 }

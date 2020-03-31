@@ -15,8 +15,40 @@ npm install fe --global
 
 ## Usage
 
+### init
+
+Initialize a project in current director
+
 ```sh
-fe init
+fe init [project name]
+```
+
+### install
+
+Install dependencies
+
+> You can use `npm install` or `yarn add ` to instead
+
+```sh
+fe install [dependency]
+```
+
+### dev
+
+Run development environment
+
+> it is equal to run `npm run dev`
+
+```sh
+fe dev
+```
+
+### publish
+
+Publish project to target server
+
+```sh
+fe publish [env]
 ```
 
 ## Author

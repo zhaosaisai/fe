@@ -1,6 +1,6 @@
 module.exports = {
   download: require('./download'),
   spinner: require('./spinner'),
-  selectProject: require('./select-project'),
+  io: require('./io'),
   exists: require('./exists')
 }

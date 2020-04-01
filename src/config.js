@@ -12,5 +12,13 @@ module.exports = {
       template: 'https://github.com/zhaosaisai/templates.git',
       branch: 'webpack-simple'
     }
-  ]
+  ],
+  server: {
+    dev: {
+
+    },
+    prod: {
+
+    }
+  }
 }

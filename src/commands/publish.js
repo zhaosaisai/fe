@@ -1,4 +1,5 @@
 const { execSync } = require('child_process')
+const chalk = require('chalk')
 
 module.exports = publish
 
@@ -19,17 +20,22 @@ module.exports = publish
 
 function hasUncommitted() {
   return new Promise((resolve) => {
-    try {
-      console.log(execSync('git status --porcelain').toString())
-    } catch(e) {
-      console.log(e)
-    }
+    resolve(!!execSync('git status --porcelain').toString())
   })
 }
 
-async function publish() {
-  await hasUncommitted()
+async function publish(target) {
+  if (await hasUncommitted()) {
+    console.log(chalk.red('>> 有本地更改暂未提交到远程仓库，请提交！'))
+    process.exit(1)
+  }
+
+  if (target === 'dev') {
+    // 发布到测试环境
+  } else {
+    // 发布到生产环境
+  }
+  // 执行本地构建
+
+  // 触发远程发布
 }
-
-
-publish()

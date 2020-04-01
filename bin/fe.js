@@ -5,7 +5,7 @@ const chalk = require('chalk')
 
 const { io } = require('../src/utils')
 const pkg = require('../package.json')
-const { init, install, dev } = require('../src')
+const { init, install, dev, publish } = require('../src')
 
 program.version(pkg.version)
 
@@ -39,5 +39,17 @@ program
   .command('dev')
   .description('Run development environment')
   .action(dev)
+
+program
+  .command('publish <target>')
+  .description('Publish application')
+  .action(async (target) => {
+    if (!target || !(['dev', 'prod'].includes(target))) {
+      console.log(chalk.red('>> 目标服务器不正确'))
+      process.exit(1)
+    }
+
+    await publish(target)
+  })
 
 program.parse(process.argv)
